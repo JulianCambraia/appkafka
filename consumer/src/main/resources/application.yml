@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: consumer
+  kafka:
+    consumer:
+      bootstrap-servers: http://localhost:9092
+      group-id: order-consumer-group-id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+
+order:
+  topic: ordertopic
+
+server:
+  port: ${PORT:0}
