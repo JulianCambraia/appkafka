@@ -58,9 +58,10 @@ tópico que vamos utilizar na implementação do listener do Kafka.
 
 ### 5 Executando a aplicação
 
-* Inicializa o projeto Producer
+* Inicializa o projeto Producer 
 
-``
-cd producer
-mvn spring-boot:run
-``
+`cd producer`
+<br/>
+`mvn spring-boot:run`
+
+A aplicação Producer disponibiliza o endpoint `POST http://localhost:8080/orders ` para receber os eventos dos pedidos.
