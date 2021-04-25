@@ -26,7 +26,7 @@ imagem abaixo.
 
 Iniciando pela infraestrutura do Kafka, criamos um arquivo docker compose com as configurações do Zookeeper e do Kafka.
 
-### 2.2 Producer (Produtor)
+### 3 Producer (Produtor)
 
 Na sequência, vamos criar a aplicação responsável por produzir mensagens na fila, onde ela terá um endpoint Rest para 
 receber pedidos e colocá-los no tópico do Kafka.
@@ -34,25 +34,33 @@ receber pedidos e colocá-los no tópico do Kafka.
 Como a aplicação vai disponibilizar um endpoint precisamos da dependência ``spring-boot-starter-web`` e também da 
 dependência ``spring-kafka`` para ter as implementações do Kafka na aplicação spring boot.
 
-#### 2.3 Application YAML (producer)
+#### 3.1 Application YAML (producer)
 
 Em termos de configurações precisamos de basicamente duas, o endereço do Kafka, definido na propriedade ``spring.kafka.producer.bootstrap-servers`` 
 e o nome do tópico que vamos utilizar no momento de enviar para o Kafka, que fica a nosso critério o padrão da configuração, 
 no caso será definido como `order.topic`.
 
-#### 2.4 Kafka Template
+#### 3.2 Kafka Template
 
 para criar nosso producer, que será responsável por enviar uma mensagem para o tópico. Para enviar vamos utilizar o 
 ``kafkaTemplate``, disponibilizado pela dependência do ``spring-kafka``, que possui o método ``send``, onde passamos o 
 tópico (injetado no atributo orderTopic via configuração), a chave única da mensagem e a mensagem a ser enviada.
 
-### 3.0 Consumer (Consumidor)
+### 4 Consumer (Consumidor)
 
 O consumer é apenas uma aplicação que ficará “lendo” o tópico e logando a mensagem recebido. Com isso, as dependências 
 utilizadas são o ``spring-boot-starter``, para rodar executar a aplicação Spring Boot e e a dependência do ``spring-kafka``.
 
-#### 3.1 Apllication UAML (Consumer)
+#### 4.1 Apllication UAML (Consumer)
 
 Em termos de configurações, é necessário o endereço do Kafka, o consumer group, configurar o ``auto-offset-reset`` e o 
 tópico que vamos utilizar na implementação do listener do Kafka.
 
+### 5 Executando a aplicação
+
+* Inicializa o projeto Producer
+
+``
+cd producer
+mvn spring-boot:run
+``
