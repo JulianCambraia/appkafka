@@ -19,3 +19,23 @@ disponibiliza um endpoint para receber a mensagem e quando recebido adiciona no 
 imagem abaixo. 
 
 ![alt text](https://github.com/julianCambraia/appkafka/blob/main/images/kafka-exemplo.png?raw=true)
+
+### 2. Kafka Infraestrutura
+
+#### 2.1 Docker Compose Kafka
+
+Iniciando pela infraestrutura do Kafka, criamos um arquivo docker compose com as configurações do Zookeeper e do Kafka.
+
+#### 2.2 Producer (Produtor)
+
+Na sequência, vamos criar a aplicação responsável por produzir mensagens na fila, onde ela terá um endpoint Rest para 
+receber pedidos e colocá-los no tópico do Kafka.
+
+Como a aplicação vai disponibilizar um endpoint precisamos da dependência ``spring-boot-starter-web`` e também da 
+dependência ``spring-kafka`` para ter as implementações do Kafka na aplicação spring boot.
+
+#### 2.3 Application YAML (producer)
+
+Em termos de configurações precisamos de basicamente duas, o endereço do Kafka, definido na propriedade ``spring.kafka.producer.bootstrap-servers`` 
+e o nome do tópico que vamos utilizar no momento de enviar para o Kafka, que fica a nosso critério o padrão da configuração, 
+no caso será definido como `order.topic`.
