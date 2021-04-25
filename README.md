@@ -65,3 +65,16 @@ tópico que vamos utilizar na implementação do listener do Kafka.
 `mvn spring-boot:run`
 
 A aplicação Producer disponibiliza o endpoint `POST http://localhost:8080/orders ` para receber os eventos dos pedidos.
+
+`cd consumer`
+<br/>
+`mvn spring-boot:run`
+
+#### 6 Executando no Shell
+
+Para testar, pode ser utilizado o seguinte comando: ```./send-order.sh "{\"identifier\": \"12343\",\"customer\": \"Customer X\", \"value\": 1521}" ```, 
+onde será inserido o pedido no tópico do Kafka, via a aplicação producer, e será cosumido pela aplicação consumer, como no log abaixo:
+
+O resultado esperado:
+
+``Order: {"identifier": "12343","customer": "Customer X", "value": 1521}``
