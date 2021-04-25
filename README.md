@@ -26,7 +26,7 @@ imagem abaixo.
 
 Iniciando pela infraestrutura do Kafka, criamos um arquivo docker compose com as configurações do Zookeeper e do Kafka.
 
-### 3 Producer (Produtor)
+### 3. Producer (Produtor)
 
 Na sequência, vamos criar a aplicação responsável por produzir mensagens na fila, onde ela terá um endpoint Rest para 
 receber pedidos e colocá-los no tópico do Kafka.
@@ -46,7 +46,7 @@ para criar nosso producer, que será responsável por enviar uma mensagem para o
 ``kafkaTemplate``, disponibilizado pela dependência do ``spring-kafka``, que possui o método ``send``, onde passamos o 
 tópico (injetado no atributo orderTopic via configuração), a chave única da mensagem e a mensagem a ser enviada.
 
-### 4 Consumer (Consumidor)
+### 4. Consumer (Consumidor)
 
 O consumer é apenas uma aplicação que ficará “lendo” o tópico e logando a mensagem recebido. Com isso, as dependências 
 utilizadas são o ``spring-boot-starter``, para rodar executar a aplicação Spring Boot e e a dependência do ``spring-kafka``.
@@ -56,7 +56,7 @@ utilizadas são o ``spring-boot-starter``, para rodar executar a aplicação Spr
 Em termos de configurações, é necessário o endereço do Kafka, o consumer group, configurar o ``auto-offset-reset`` e o 
 tópico que vamos utilizar na implementação do listener do Kafka.
 
-### 5 Executando a aplicação
+### 5. Executando a aplicação
 
 * Inicializa o projeto Producer 
 
@@ -70,7 +70,7 @@ A aplicação Producer disponibiliza o endpoint `POST http://localhost:8080/orde
 <br/>
 `mvn spring-boot:run`
 
-#### 6 Executando no Shell
+#### 6. Executando no Shell
 
 Para testar, pode ser utilizado o seguinte comando: ```./send-order.sh "{\"identifier\": \"12343\",\"customer\": \"Customer X\", \"value\": 1521}" ```, 
 onde será inserido o pedido no tópico do Kafka, via a aplicação producer, e será cosumido pela aplicação consumer, como no log abaixo:
