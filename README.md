@@ -25,6 +25,7 @@ imagem abaixo.
 #### 2.1 Docker Compose Kafka
 
 Iniciando pela infraestrutura do Kafka, criamos um arquivo docker compose com as configurações do Zookeeper e do Kafka.
+Em seguida subir o container com o comando: ``docker-compose up -d``
 
 ### 3. Producer (Produtor)
 
