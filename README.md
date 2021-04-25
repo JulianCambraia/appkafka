@@ -18,4 +18,4 @@ disponibiliza um endpoint para receber a mensagem e quando recebido adiciona no 
 é uma aplicação Spring Boot, que fica “escutando” o tópico do Kafka e logando as mensagens recebidas, como demonstrado na 
 imagem abaixo. 
 
-![alt text](https://github.com/juliancambraia/appkafka/blob/main/imagens/kafka-exemplo.png?raw=true)
+![alt text](https://github.com/julianCambraia/appkafka/blob/main/images/kafka-exemplo.png?raw=true)
